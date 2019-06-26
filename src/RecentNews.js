@@ -1,12 +1,14 @@
 import React from 'react';
 
-export default function RecentNews() {
+export default function RecentNews(props) {
+  const { articles } = props;
+  const articlesListItems = articles.map(article => (
+    <li key={article.title}>{article.title}</li>));
   return (
     <div className="recent-news">
       Recent News
       <ul>
-        <li>Article 1</li>
-        <li>Article 2</li>
+        {articlesListItems}
       </ul>
     </div>
   );

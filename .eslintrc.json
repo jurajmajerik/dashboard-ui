@@ -1,6 +1,7 @@
 {
   "extends": ["airbnb"],
   "rules": {
+    "func-names": "off",
     "no-undef": "off",
     "no-console": "off",
     "no-underscore-dangle": "off",
