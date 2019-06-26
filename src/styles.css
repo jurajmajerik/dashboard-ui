@@ -1,4 +1,28 @@
 .App {
   font-family: sans-serif;
-  text-align: center;
+}
+
+.nav-top {
+  border: solid 1px black;
+}
+
+.bar-live {
+  border: solid 1px red;
+}
+
+.data-wrapper {
+  display: grid;
+  grid-template-columns: 200px auto;
+}
+
+.country-list {
+  border: solid 1px blue;
+}
+
+.bar-chart {
+  border: solid 1px green;
+}
+
+.recent-news {
+  border: solid 1px brown;
 }

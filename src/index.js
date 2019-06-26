@@ -3,11 +3,20 @@ import ReactDOM from 'react-dom';
 
 import './styles.css';
 
+import NavTop from './NavTop';
+import BarLive from './BarLive';
+import CountriesList from './CountriesList';
+import CountrySummary from './CountrySummary';
+
 function App() {
   return (
     <div className="App">
-      <h1>HELLO THERE!</h1>
-      <h2>Start editing to see some magic happen!</h2>
+      <NavTop />
+      <BarLive />
+      <div className="data-wrapper">
+        <CountriesList />
+        <CountrySummary />
+      </div>
     </div>
   );
 }
