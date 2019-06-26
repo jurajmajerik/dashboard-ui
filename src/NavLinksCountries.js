@@ -1,10 +1,10 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-import { dataset } from './data/dataset';
+import { datasetInit } from './data/datasetInit';
 
 export default function NavLinksCountries() {
-  const countries = Object.keys(dataset);
+  const countries = Object.keys(datasetInit);
   const items = countries.map(country => (
     <li key={country}>
       <NavLink key={country} to={`/country/${country}`} activeClassName="sidebar-active">

@@ -5,7 +5,8 @@ import history from './history';
 
 import './styles.css';
 
-import { dataset } from './data/dataset';
+import fetchData from './fetchData';
+import articleAdder from './articleAdder';
 
 import NavTop from './NavTop';
 import BarLive from './BarLive';
@@ -17,31 +18,17 @@ import ViewCountry from './ViewCountry';
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { articles: [] };
+    this.state = { dataset: fetchData() };
   }
 
-  // componentDidMount() {
-  //   this.modifyData();
-  // }
-
-  // modifyData() {
-  //   const { articles } = this.state;
-  //   let i = 0;
-  //   const cycle = (function () {
-  //     setTimeout(() => {
-  //       const newArticles = articles;
-  //       newArticles.push(articlesData[i]);
-  //       this.setState({ articles: newArticles });
-  //       i += 1;
-  //       if (i < 6) {
-  //         cycle();
-  //       }
-  //     }, 500);
-  //   }).bind(this);
-  //   cycle();
-  // }
+  componentDidMount() {
+    const i = 0;
+    const cycle = articleAdder.bind(this);
+    cycle(i);
+  }
 
   render() {
+    const { dataset } = this.state;
     return (
       <div className="App">
         <NavTop />

@@ -1,4 +1,4 @@
-export const dataset = {
+export const datasetInit = {
   USA: [
     {
       title: 'This is the title of the first article',
