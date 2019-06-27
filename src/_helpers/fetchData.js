@@ -1,4 +1,4 @@
-import { datasetInit } from './data/datasetInit';
+import { datasetInit } from '../_data/datasetInit';
 
 export default function fetchData() {
   return datasetInit;

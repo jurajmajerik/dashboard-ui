@@ -1,19 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, Switch } from 'react-router-dom';
-import history from './history';
+import history from './_helpers/history';
 
-import './styles.css';
+import fetchData from './_helpers/fetchData';
+import articleAdder from './_helpers/articleAdder';
 
-import fetchData from './fetchData';
-import articleAdder from './articleAdder';
+import NavTop from './components/NavTop';
+import BarLive from './components/BarLive';
+import CountriesList from './components/CountriesList';
 
-import NavTop from './NavTop';
-import BarLive from './BarLive';
-import CountriesList from './CountriesList';
-
-import ViewAll from './ViewAll';
-import ViewCountry from './ViewCountry';
+import ViewAll from './components/ViewAll';
+import ViewCountry from './components/ViewCountry';
 
 class App extends React.Component {
   constructor(props) {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-import { datasetInit } from './data/datasetInit';
+import { datasetInit } from '../_data/datasetInit';
 
 export default function NavLinksCountries() {
   const countries = Object.keys(datasetInit);

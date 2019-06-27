@@ -1,4 +1,4 @@
-import { articlesToAdd } from './data/articlesToAdd';
+import { articlesToAdd } from '../_data/articlesToAdd';
 
 export default function articleAdder(i) {
   const { dataset } = this.state;

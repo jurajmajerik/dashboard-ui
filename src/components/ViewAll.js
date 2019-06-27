@@ -1,4 +1,5 @@
 import React from 'react';
+import ArticleRow from './ArticleRow';
 
 export default function ViewAll(props) {
   const { dataset } = props;
@@ -6,12 +7,16 @@ export default function ViewAll(props) {
   const articlesAll = countries.reduce((prevArr, country) => {
     return prevArr.concat(dataset[country]);
   }, []);
-  const articleItems = articlesAll.map(article => (
-    <li key={article.title}>{article.title}</li>
+  const ArticleRows = articlesAll.map(article => (
+    <ArticleRow
+      key={article.title}
+      title={article.title}
+      date={article.date}
+    />
   ));
   return (
-    <ul>
-      {articleItems}
-    </ul>
+    <div>
+      {ArticleRows}
+    </div>
   );
 }
