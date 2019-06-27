@@ -3,8 +3,7 @@ import moment from 'moment';
 
 export default function ArticleRow(props) {
   const { title, date } = props;
-  const momObj = moment(date);
-  const formattedDate = momObj.format('DD MMM HH:mm');
+  const formattedDate = moment(date).format('DD MMM HH:mm');
 
   return (
     <div className="article-item">

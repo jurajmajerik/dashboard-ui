@@ -17,8 +17,10 @@ import ViewCountry from './components/ViewCountry';
 class App extends React.Component {
   constructor(props) {
     super(props);
-    const dataset = fetchData();
-    this.state = { dataset };
+    this.state = {
+      dataset: fetchData(),
+      newArticle: null,
+    };
   }
 
   componentDidMount() {
@@ -28,11 +30,11 @@ class App extends React.Component {
   }
 
   render() {
-    const { dataset } = this.state;
+    const { dataset, newArticle } = this.state;
     return (
       <div className="App">
         <NavTop />
-        <BarLive />
+        <BarLive article={newArticle} />
         <Router history={history}>
           <div className="data-wrapper">
             <CountriesList />
