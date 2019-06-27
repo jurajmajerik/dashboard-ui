@@ -10,6 +10,7 @@ export default function ViewCountry(props) {
       key={article.title}
       title={article.title}
       date={article.date}
+      topics={article.topics}
     />
   ));
   return (

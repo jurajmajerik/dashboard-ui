@@ -19,5 +19,5 @@ export default function articleAdder(i) {
     if (i < articlesToAdd.length - 1) {
       articleAdder.call(this, index);
     }
-  }, 200);
+  }, 2000);
 }

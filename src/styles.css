@@ -8,11 +8,13 @@
 
 .bar-live {
   border: solid 1px red;
+  display: grid;
+  grid-template-columns: 80px auto;
 }
 
 .data-wrapper {
   display: grid;
-  grid-template-columns: 100px auto;
+  grid-template-columns: 150px auto;
 }
 
 .country-list {

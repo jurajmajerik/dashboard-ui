@@ -14,6 +14,7 @@ export default function ViewAll(props) {
       key={article.title}
       title={article.title}
       date={article.date}
+      topics={article.topics}
     />
   ));
   return (

@@ -1,35 +1,17 @@
 export const datasetInit = {
   USA: [
-    {
-      title: 'This is the title of the first article',
-    },
-    {
-      title: 'This is the title of the second article',
-    },
-    {
-      title: 'This is the title of the third article',
-    },
+    { title: 'Article 1', topics: [1, 5, 3] },
+    { title: 'Article 2', topics: [1] },
+    { title: 'Article 3', topics: [4, 3] },
   ],
   UK: [
-    {
-      title: 'This is the title of the fourth article',
-    },
-    {
-      title: 'This is the title of the fifth article',
-    },
-    {
-      title: 'This is the title of the sixth article',
-    },
+    { title: 'Article 4', topics: [2] },
+    { title: 'Article 5', topics: [1, 3] },
+    { title: 'Article 6', topics: [1, 2, 4] },
   ],
   Netherlands: [
-    {
-      title: 'This is the title of the seventh article',
-    },
-    {
-      title: 'This is the title of the eigth article',
-    },
-    {
-      title: 'This is the title of the ninth article',
-    },
+    { title: 'Article 7', topics: [1] },
+    { title: 'Article 8', topics: [5] },
+    { title: 'Article 9', topics: [1, 3] },
   ],
 };

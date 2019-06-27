@@ -1,10 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, Switch } from 'react-router-dom';
-import history from './_helpers/history';
-
 import './styles.css';
 
+import history from './_helpers/history';
 import fetchData from './_helpers/fetchData';
 import articleAdder from './_helpers/articleAdder';
 
