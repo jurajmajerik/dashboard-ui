@@ -1,13 +1,15 @@
 import React from 'react';
+
+import getAllArticles from '../_helpers/getAllArticles';
+import sortArticles from '../_helpers/sortArticles';
+
 import ArticleRow from './ArticleRow';
 
 export default function ViewAll(props) {
   const { dataset } = props;
-  const countries = Object.keys(dataset);
-  const articlesAll = countries.reduce((prevArr, country) => {
-    return prevArr.concat(dataset[country]);
-  }, []);
-  const ArticleRows = articlesAll.map(article => (
+  const articlesAll = getAllArticles(dataset);
+  const articlesAllSorted = sortArticles(articlesAll);
+  const ArticleRows = articlesAllSorted.map(article => (
     <ArticleRow
       key={article.title}
       title={article.title}
