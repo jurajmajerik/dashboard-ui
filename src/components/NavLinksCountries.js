@@ -1,16 +1,18 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-import { datasetInit } from '../_data/datasetInit';
+import getSortedCountries from '../_helpers/getSortedCountries';
 
-export default function NavLinksCountries() {
-  const countries = Object.keys(datasetInit);
-  const items = countries.map(country => (
-    <li key={country}>
-      <NavLink key={country} to={`/country/${country}`} activeClassName="sidebar-active">
+export default function NavLinksCountries(props) {
+  const { dataset } = props;
+  const items = getSortedCountries(dataset).map((country, i) => (
+    <div key={country}>
+      <NavLink key={country} to={`/${country}`} activeClassName="sidebar-active">
+        {i + 1}
+        &nbsp;
         {country}
       </NavLink>
-    </li>
+    </div>
   ));
   return (
     <React.Fragment>

@@ -37,7 +37,7 @@ class App extends React.Component {
         <BarLive article={newArticle} />
         <Router history={history}>
           <div className="data-wrapper">
-            <CountriesList />
+            <CountriesList dataset={dataset} />
             <Switch>
               <Route
                 exact
@@ -45,7 +45,7 @@ class App extends React.Component {
                 render={() => <ViewAll dataset={dataset} />}
               />
               <Route
-                path="/country/:country"
+                path="/:country"
                 render={props => <ViewCountry dataset={dataset} {...props} />}
               />
             </Switch>
