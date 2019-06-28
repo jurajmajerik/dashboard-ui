@@ -13,16 +13,16 @@ export default class LiveText extends React.Component {
     this.show();
     setTimeout(() => {
       this.hide();
-    }, 500);
+    }, 1500);
   }
 
   componentDidUpdate(prevProps) {
     const { article } = this.props;
-    if (article !== prevProps.article) {
+    if (article.title !== prevProps.article.title) {
       this.show();
       setTimeout(() => {
         this.hide();
-      }, 500);
+      }, 1500);
     }
   }
 

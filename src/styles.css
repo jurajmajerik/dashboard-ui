@@ -1,37 +1,69 @@
+body {
+  margin: 20px;
+}
+
 .App {
-  font-family: sans-serif;
+  font-family: 'Lato', sans-serif;
+  height: 100%;
+}
+
+.box {
 }
 
 .nav-top {
   border: solid 1px black;
+  border-radius: 3px;
+  padding: 5px;
+  margin-bottom: 20px;
 }
 
 .bar-live {
   border: solid 1px red;
+  border-radius: 3px;
+  padding: 5px;
   display: grid;
   grid-template-columns: 80px auto;
 }
 
-.data-wrapper {
+.outer-wrapper {
+  padding-top: 20px;
   display: grid;
-  grid-template-columns: 150px auto;
+  grid-template-columns: 250px auto;
+  grid-gap: 20px;
 }
 
 .country-list {
   border: solid 1px blue;
+  border-radius: 3px;
 }
 
 .bar-chart {
   border: solid 1px green;
+  border-radius: 3px;
+  height: 200px;
+  margin-bottom: 20px;
 }
 
-.recent-news {
-  border: solid 1px brown;
+.article-wrapper{
+  margin: 0;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 .article-item {
   border: solid 1px orange;
+  border-radius: 3px;
   overflow: hidden;
   display: grid;
   grid-template-columns: 10% 50% 20% 20%;
+  padding: 5px;
+  font-size: 12px;
+}
+
+.country-nav-item {
+  border: solid 1px grey;
+  display: grid;
+  grid-template-columns: 20px auto;
+  text-decoration: none;
+  color: inherit;
 }

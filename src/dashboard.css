@@ -1,0 +1,74 @@
+/* body {
+  background-color: #272938;
+  color: #F5F9FF;
+}
+
+.App {
+  border: none;
+}
+
+.box {
+  background-color: #2E3142;
+  border-radius: 3px;
+  -webkit-box-shadow: 0px 0px 5px 4px #1a1b25;
+  -moz-box-shadow: 0px 0px 5px 4px #1a1b25;
+  box-shadow: 0px 0px 2px 2px #2526338f;
+}
+
+.nav-top {
+  border: none;
+  background-color: #2E3142;
+}
+
+.bar-live {
+  border: none;
+  background-color: #2E3142;
+}
+
+.outer-wrapper {
+  border: none;
+}
+
+.country-list {
+  background-color: #2E3142;
+  border: none;
+}
+
+.bar-chart {
+  background-color: #2E3142;
+  border: none;
+}
+
+
+.article-item {
+  background-color: #2E3142;
+  border: none;
+}
+
+.country-nav-item {
+  border: none;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.navlink-wrapper a {
+  color: #F5F9FF;
+  text-decoration: none;
+  width: 100%;
+  height: 100%;
+}
+
+.country-title {
+  padding: 15px;
+  color: #4D8AB9;
+}
+
+::-webkit-scrollbar { width: 4px; height: 3px;}
+::-webkit-scrollbar-button {  background-color: rgb(60, 65, 88); }
+::-webkit-scrollbar-track {  background-color: rgb(60, 65, 88);}
+::-webkit-scrollbar-track-piece { background-color: rgb(30, 32, 44);}
+::-webkit-scrollbar-thumb { height: 50px; background-color: rgb(60, 65, 88); border-radius: 3px;}
+::-webkit-scrollbar-corner { background-color: rgb(60, 65, 88);}
+::-webkit-resizer { background-color: rgb(60, 65, 88);}
+
+ */

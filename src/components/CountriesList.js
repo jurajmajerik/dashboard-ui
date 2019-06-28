@@ -6,7 +6,7 @@ import NavLinksCountries from './NavLinksCountries';
 export default function CountriesList(props) {
   const { dataset } = props;
   return (
-    <div className="country-list">
+    <div className="country-list box">
       <NavLinkAll />
       <NavLinksCountries dataset={dataset} />
     </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 
 import ArticleRow from './ArticleRow';
+import BarChart from './BarChart';
 
 export default function ViewCountry(props) {
   const { dataset, match } = props;
@@ -15,7 +16,16 @@ export default function ViewCountry(props) {
   ));
   return (
     <div>
-      {ArticleRows}
+      <BarChart country={match.params.country} />
+      <div
+        className="article-wrapper box"
+        style={{
+          height: window.innerHeight - 355,
+          maxHeight: window.innerHeight - 355,
+        }}
+      >
+        {ArticleRows}
+      </div>
     </div>
   );
 }

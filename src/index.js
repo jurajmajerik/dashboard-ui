@@ -1,24 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route, Switch } from 'react-router-dom';
+import { Router } from 'react-router-dom';
 import './styles.css';
+import './dashboard.css';
 
 import history from './_helpers/history';
-import fetchData from './_helpers/fetchData';
+import { fetchArticles, fetchNewArticle } from './_helpers/fetchData';
 import articleAdder from './_helpers/articleAdder';
 
 import NavTop from './components/NavTop';
 import BarLive from './components/BarLive';
 import CountriesList from './components/CountriesList';
-import ViewAll from './components/ViewAll';
-import ViewCountry from './components/ViewCountry';
+import DataWrapper from './components/DataWrapper';
+import Routes from './components/Routes';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      dataset: fetchData(),
-      newArticle: null,
+      dataset: fetchArticles(),
+      newArticle: fetchNewArticle(),
     };
   }
 
@@ -35,23 +36,12 @@ class App extends React.Component {
         <NavTop />
         <BarLive article={newArticle} />
         <Router history={history}>
-          <div className="data-wrapper">
+          <DataWrapper>
             <CountriesList dataset={dataset} />
-            <Switch>
-              <Route
-                exact
-                path="/"
-                render={() => <ViewAll dataset={dataset} />}
-              />
-              <Route
-                path="/:country"
-                render={props => <ViewCountry dataset={dataset} {...props} />}
-              />
-            </Switch>
-          </div>
+            <Routes dataset={dataset} />
+          </DataWrapper>
         </Router>
       </div>
-
     );
   }
 }

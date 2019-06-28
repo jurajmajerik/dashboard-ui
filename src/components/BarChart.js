@@ -1,9 +1,12 @@
 import React from 'react';
 
-export default function BarChart() {
+import CountryTitle from './CountryTitle';
+
+export default function BarChart(props) {
+  const { country } = props;
   return (
-    <div className="bar-chart">
-      Bar chart | | | | | |
+    <div className="bar-chart box">
+      <CountryTitle country={country} />
     </div>
   );
 }

@@ -4,6 +4,7 @@ import getAllArticles from '../_helpers/getAllArticles';
 import sortArticles from '../_helpers/sortArticles';
 
 import ArticleRow from './ArticleRow';
+import BarChart from './BarChart';
 
 export default function ViewAll(props) {
   const { dataset } = props;
@@ -19,7 +20,16 @@ export default function ViewAll(props) {
   ));
   return (
     <div>
-      {ArticleRows}
+      <BarChart />
+      <div
+        className="article-wrapper box"
+        style={{
+          height: window.innerHeight - 355,
+          maxHeight: window.innerHeight - 355,
+        }}
+      >
+        {ArticleRows}
+      </div>
     </div>
   );
 }

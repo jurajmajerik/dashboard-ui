@@ -3,16 +3,12 @@ import { NavLink } from 'react-router-dom';
 
 import getSortedCountries from '../_helpers/getSortedCountries';
 
+import CountryNavItem from './CountryNavItem';
+
 export default function NavLinksCountries(props) {
   const { dataset } = props;
   const items = getSortedCountries(dataset).map((country, i) => (
-    <div key={country}>
-      <NavLink key={country} to={`/${country}`} activeClassName="sidebar-active">
-        {i + 1}
-        &nbsp;
-        {country}
-      </NavLink>
-    </div>
+    <CountryNavItem key={country} country={country} rank={i + 1} />
   ));
   return (
     <React.Fragment>
