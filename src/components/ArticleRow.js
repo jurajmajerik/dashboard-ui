@@ -12,7 +12,7 @@ export default function ArticleRow(props) {
 
   return (
     <div className="article-item">
-      <div>{formattedDate}</div>
+      <div className="text-darker">{formattedDate}</div>
       <div>{title}</div>
       <div>{topicsString}</div>
       <div>www.google.com</div>

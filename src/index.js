@@ -10,7 +10,7 @@ import articleAdder from './_helpers/articleAdder';
 
 import NavTop from './components/NavTop';
 import BarLive from './components/BarLive';
-import CountriesList from './components/CountriesList';
+import SideBar from './components/SideBar';
 import DataWrapper from './components/DataWrapper';
 import Routes from './components/Routes';
 
@@ -37,7 +37,7 @@ class App extends React.Component {
         <BarLive article={newArticle} />
         <Router history={history}>
           <DataWrapper>
-            <CountriesList dataset={dataset} />
+            <SideBar dataset={dataset} />
             <Routes dataset={dataset} />
           </DataWrapper>
         </Router>

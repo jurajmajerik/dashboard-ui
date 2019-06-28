@@ -4,7 +4,7 @@ export default function CountryTitle(props) {
   const { country } = props;
   return (
     <div className="country-title">
-      {country}
+      {country || 'All Countries'}
     </div>
   );
 }

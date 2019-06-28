@@ -23,6 +23,7 @@ body {
   padding: 5px;
   display: grid;
   grid-template-columns: 80px auto;
+  font-size: 14px;
 }
 
 .outer-wrapper {
@@ -66,4 +67,8 @@ body {
   grid-template-columns: 20px auto;
   text-decoration: none;
   color: inherit;
+  font-size: 14px;
+  height: 25px;
+  padding-top: 8px;
+  padding-left: 10px;
 }

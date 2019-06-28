@@ -1,4 +1,4 @@
-/* body {
+body {
   background-color: #272938;
   color: #F5F9FF;
 }
@@ -47,7 +47,6 @@
 
 .country-nav-item {
   border: none;
-  font-size: 14px;
   text-decoration: none;
 }
 
@@ -58,9 +57,17 @@
   height: 100%;
 }
 
+.sidebar-active {
+  background-color: rgb(55, 58, 78) !important;
+}
+
 .country-title {
   padding: 15px;
   color: #4D8AB9;
+}
+
+.text-darker {
+  color: #848BA7;
 }
 
 ::-webkit-scrollbar { width: 4px; height: 3px;}
@@ -71,4 +78,4 @@
 ::-webkit-scrollbar-corner { background-color: rgb(60, 65, 88);}
 ::-webkit-resizer { background-color: rgb(60, 65, 88);}
 
- */
+

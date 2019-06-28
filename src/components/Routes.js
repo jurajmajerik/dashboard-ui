@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
 import ViewAll from './ViewAll';
 import ViewCountry from './ViewCountry';
@@ -8,9 +8,10 @@ export default function Routes(props) {
   const { dataset } = props;
   return (
     <Switch>
+      <Route exact path="/" render={() => <Redirect to="/all" />} />
       <Route
         exact
-        path="/"
+        path="/all"
         render={() => <ViewAll dataset={dataset} />}
       />
       <Route

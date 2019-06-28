@@ -13,7 +13,7 @@ export default class LiveText extends React.Component {
     this.show();
     setTimeout(() => {
       this.hide();
-    }, 1500);
+    }, 1600);
   }
 
   componentDidUpdate(prevProps) {
@@ -22,7 +22,7 @@ export default class LiveText extends React.Component {
       this.show();
       setTimeout(() => {
         this.hide();
-      }, 1500);
+      }, 1600);
     }
   }
 
@@ -38,7 +38,7 @@ export default class LiveText extends React.Component {
     const { show } = this.state;
     const { article } = this.props;
     return (
-      <Fade in={show} timeout={200}>
+      <Fade in={show} timeout={100}>
         <div>{article.title}</div>
       </Fade>
     );

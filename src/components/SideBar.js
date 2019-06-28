@@ -1,13 +1,13 @@
 import React from 'react';
 
-import NavLinkAll from './NavLinkAll';
 import NavLinksCountries from './NavLinksCountries';
+import AllCountriesLink from './AllCountriesLink';
 
-export default function CountriesList(props) {
+export default function SideBar(props) {
   const { dataset } = props;
   return (
     <div className="country-list box">
-      <NavLinkAll />
+      <AllCountriesLink />
       <NavLinksCountries dataset={dataset} />
     </div>
   );

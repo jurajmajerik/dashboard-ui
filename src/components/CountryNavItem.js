@@ -1,7 +1,5 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import KeyboardArrowUp from '@material-ui/icons/KeyboardArrowUp';
-import KeyboardArrowDown from '@material-ui/icons/KeyboardArrowDown';
 
 export default class CountryNavItem extends React.Component {
   constructor(props) {
@@ -23,30 +21,31 @@ export default class CountryNavItem extends React.Component {
 
   render() {
     const trendIcons = {
-      increase: <KeyboardArrowUp style={{ color: 'green' }} />,
-      decrease: <KeyboardArrowDown style={{ color: 'red' }} />,
-      noChange: '—',
+      increase: <i className="fas fa-chevron-up" style={{ color: 'green' }} />,
+      decrease: <i className="fas fa-chevron-down" style={{ color: 'red' }} />,
+      noChange: <div className="text-darker" style={{ transform: 'translateY(-1px)' }}>—</div>,
     };
     // const trendIcons = {
-    //   increase: '>',
-    //   decrease: '<',
-    //   noChange: '—',
+    //   increase: <div className="text-darker" style={{ paddingBottom: '4px' }}>—</div>,
+    //   decrease: <div className="text-darker" style={{ paddingBottom: '4px' }}>—</div>,
+    //   noChange: <div className="text-darker" style={{ paddingBottom: '4px' }}>—</div>,
     // };
     const { country, rank } = this.props;
     return (
-      <div className="navlink-wrapper">
-        <NavLink key={country} to={`/${country}`} activeClassName="sidebar-active">
-          <div className="country-nav-item">
-            <div>{trendIcons[this.state.trend]}</div>
-            <div>
-              &nbsp;&nbsp;&nbsp;&nbsp;
-              {rank}
-              &nbsp;
-              {country}
-            </div>
+      <NavLink
+        className="navlink-wrapper country-nav-item"
+        key={country}
+        to={`/${country}`}
+        activeClassName="sidebar-active"
+      >
+          <div>{trendIcons[this.state.trend]}</div>
+          <div>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            {rank}
+            &nbsp;
+            {country}
           </div>
-        </NavLink>
-      </div>
+      </NavLink>
     );
   }
 }
