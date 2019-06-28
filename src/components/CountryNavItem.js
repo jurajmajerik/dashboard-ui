@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { KeyboardArrowUp, KeyboardArrowDown } from '@material-ui/icons';
+import KeyboardArrowUp from '@material-ui/icons/KeyboardArrowUp';
+import KeyboardArrowDown from '@material-ui/icons/KeyboardArrowDown';
 
 export default class CountryNavItem extends React.Component {
   constructor(props) {
@@ -26,6 +27,11 @@ export default class CountryNavItem extends React.Component {
       decrease: <KeyboardArrowDown style={{ color: 'red' }} />,
       noChange: '—',
     };
+    // const trendIcons = {
+    //   increase: '>',
+    //   decrease: '<',
+    //   noChange: '—',
+    // };
     const { country, rank } = this.props;
     return (
       <div className="navlink-wrapper">
