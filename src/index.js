@@ -20,7 +20,9 @@ class App extends React.Component {
     this.state = {
       dataset: fetchArticles(),
       newArticle: fetchNewArticle(),
+      filter: 'all',
     };
+    this.handleFilterChange = this.handleFilterChange.bind(this);
   }
 
   componentDidMount() {
@@ -29,16 +31,20 @@ class App extends React.Component {
     cycle(i);
   }
 
+  handleFilterChange(event) {
+    this.setState({ filter: event.target.value });
+  }
+
   render() {
-    const { dataset, newArticle } = this.state;
+    const { dataset, newArticle, filter } = this.state;
     return (
       <div className="App">
-        <NavTop />
+        <NavTop filter={filter} onFilterChange={this.handleFilterChange} />
         <BarLive article={newArticle} />
         <Router history={history}>
           <DataWrapper>
             <SideBar dataset={dataset} />
-            <Routes dataset={dataset} />
+            <Routes dataset={dataset} filter={filter} />
           </DataWrapper>
         </Router>
       </div>

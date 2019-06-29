@@ -1,10 +1,19 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import Fade from '@material-ui/core/Fade';
 
 export default class CountryNavItem extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { trend: 'noChange' };
+    this.state = {
+      trend: 'noChange',
+      show: true,
+    };
+    this.show = this.show.bind(this);
+    this.hide = this.hide.bind(this);
+  }
+
+  componentDidMount() {
   }
 
   componentDidUpdate(prevProps) {
@@ -12,6 +21,12 @@ export default class CountryNavItem extends React.Component {
     if (rank !== prevProps.rank) {
       const trend = rank < prevProps.rank ? 'increase' : 'decrease';
       this.setTrend(trend);
+      setTimeout(() => {
+        this.hide();
+        setTimeout(() => {
+          this.show();
+        }, 200);
+      }, 0);
     }
   }
 
@@ -19,33 +34,42 @@ export default class CountryNavItem extends React.Component {
     this.setState({ trend });
   }
 
+  show() {
+    this.setState({ show: true });
+  }
+
+  hide() {
+    this.setState({ show: false });
+  }
+
   render() {
     const trendIcons = {
-      increase: <i className="fas fa-chevron-up" style={{ color: 'green' }} />,
-      decrease: <i className="fas fa-chevron-down" style={{ color: 'red' }} />,
+      increase: <i className="fas fa-chevron-up" style={{ color: '#58AC5F' }} />,
+      decrease: <i className="fas fa-chevron-down" style={{ color: '#AC5858' }} />,
       noChange: <div className="text-darker" style={{ transform: 'translateY(-1px)' }}>—</div>,
     };
-    // const trendIcons = {
-    //   increase: <div className="text-darker" style={{ paddingBottom: '4px' }}>—</div>,
-    //   decrease: <div className="text-darker" style={{ paddingBottom: '4px' }}>—</div>,
-    //   noChange: <div className="text-darker" style={{ paddingBottom: '4px' }}>—</div>,
-    // };
     const { country, rank } = this.props;
+    const { show, trend } = this.state;
+    if (country === 'United Kingdom') {
+      console.log(show);
+    }
     return (
-      <NavLink
-        className="navlink-wrapper country-nav-item"
-        key={country}
-        to={`/${country}`}
-        activeClassName="sidebar-active"
-      >
-          <div>{trendIcons[this.state.trend]}</div>
+      <Fade in={show} timeout={500}>
+        <NavLink
+          className="navlink-wrapper country-nav-item"
+          key={country}
+          to={`/${country}`}
+          activeClassName="sidebar-active"
+        >
+          <div>{trendIcons[trend]}</div>
           <div>
             &nbsp;&nbsp;&nbsp;&nbsp;
             {rank}
             &nbsp;
             {country}
           </div>
-      </NavLink>
+        </NavLink>
+      </Fade>
     );
   }
 }

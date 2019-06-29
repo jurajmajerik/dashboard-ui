@@ -3,15 +3,28 @@ import React from 'react';
 import * as d3 from 'd3';
 import 'd3-selection-multi';
 
+import getHistoricalData from '../_helpers/getHistoricalData';
+
 export default class BarChart extends React.Component {
   componentDidMount() {
     this.drawChart();
   }
 
-  drawChart() { // eslint-disable-line class-methods-use-this
+  componentDidUpdate(prevProps, prevState) {
+    if (this.props.title !== prevProps.title) this.redrawChart();
+  }
+
+  redrawChart() {
+    d3.select('.bar-chart').selectAll('*').remove();
+    this.drawChart();
+  }
+
+  drawChart() {
+    const data = getHistoricalData();
+
     const margin = { top: 20, right: 20, bottom: 30, left: 50 };
     const width = 960 - margin.left - margin.right;
-    const height = 200 - margin.top - margin.bottom;
+    const height = 150 - margin.top - margin.bottom;
 
     const parseDate = d3.timeParse('%Y%m%d');
 
@@ -21,7 +34,7 @@ export default class BarChart extends React.Component {
     const area = d3.area()
       .x(d => x(d.date))
       .y0(height)
-      .y1(d => y(d.temperature));
+      .y1(d => y(d.count));
 
     const svg = d3.select('.bar-chart').append('svg')
       .attr('width', width + margin.left + margin.right)
@@ -29,39 +42,13 @@ export default class BarChart extends React.Component {
       .append('g')
       .attr('transform', `translate(${margin.left},${margin.top})`);
 
-
-    const data = [
-      { date: 20111001, temperature: 50 },
-      { date: 20111002, temperature: 70 },
-      { date: 20111003, temperature: 60 },
-      { date: 20111004, temperature: 90 },
-      { date: 20111005, temperature: 100 },
-      { date: 20111006, temperature: 80 },
-      { date: 20111007, temperature: 70 },
-      { date: 20111008, temperature: 80 },
-      { date: 20111009, temperature: 60 },
-      { date: 20111010, temperature: 70 },
-      { date: 20111011, temperature: 70 },
-      { date: 20111012, temperature: 60 },
-      { date: 20111013, temperature: 60 },
-      { date: 20111014, temperature: 90 },
-      { date: 20111015, temperature: 70 },
-      { date: 20111016, temperature: 80 },
-      { date: 20111017, temperature: 70 },
-      { date: 20111018, temperature: 80 },
-      { date: 20111019, temperature: 60 },
-      { date: 20111020, temperature: 70 },
-      { date: 20111021, temperature: 70 },
-      { date: 20111022, temperature: 60 },
-    ];
-
     data.forEach((d) => {
       d.date = parseDate(d.date);
-      d.temperature = +d.temperature;
+      d.count = +d.count;
     });
 
     x.domain([data[0].date, data[data.length - 1].date]);
-    y.domain(d3.extent(data, d => d.temperature));
+    y.domain(d3.extent(data, d => d.count));
 
     svg.append('linearGradient')
       .attr('id', 'temperature-gradient')
@@ -102,20 +89,22 @@ export default class BarChart extends React.Component {
 
     const valueline = d3.line()
       .x(d => x(d.date))
-      .y(d => y(d.temperature));
+      .y(d => y(d.count));
 
     // Add the valueline path.
     svg.append('path')
       .data([data])
       .attr('class', 'line')
       .attr('d', valueline);
-
   }
 
   render() {
+    const { title } = this.props;
     return (
-      <div className="bar-chart box"></div>
+        <div className="bar-chart-wrapper box">
+          <div className="bar-chart-title">{title}</div>
+          <div className="bar-chart"></div>
+        </div>
     );
   }
-  
 }

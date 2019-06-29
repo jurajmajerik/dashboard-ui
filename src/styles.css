@@ -13,8 +13,19 @@ body {
 .nav-top {
   border: solid 1px black;
   border-radius: 3px;
-  padding: 5px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 9px;
+  display: grid;
+  grid-template-columns: 150px 150px;
   margin-bottom: 20px;
+}
+
+.select-wrapper {
+  padding: 5px;
+  border-radius: 3px;
+  display: grid;
+  grid-template-columns: 60px 40px;
 }
 
 .bar-live {
@@ -38,17 +49,31 @@ body {
   border-radius: 3px;
 }
 
-.bar-chart {
+.bar-chart-wrapper {
   border: solid 1px green;
   border-radius: 3px;
   height: 200px;
   margin-bottom: 20px;
 }
 
+.bar-chart {
+}
+
 .article-wrapper{
   margin: 0;
   overflow-x: hidden;
   overflow-y: scroll;
+}
+
+.article-list-header {
+  display: grid;
+  grid-template-columns: 10% 50% 20% 20%;
+  padding-top: 5px;
+  padding-left: 8px;
+  padding-bottom: 7px;
+  margin-bottom: 5px;
+  font-size: 14px;
+  background-color: #393E51;
 }
 
 .article-item {
@@ -59,6 +84,21 @@ body {
   grid-template-columns: 10% 50% 20% 20%;
   padding: 5px;
   font-size: 12px;
+}
+
+.topics-wrapper {
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+}
+
+.topic-badge {
+  background-color: #4D8AB9;
+  color: rgb(56, 59, 78);
+  grid-gap: 5px;
+  border-radius: 3px;
+  text-align: center;
+  font-weight: 700;
+  margin: 0px 4px 0px 4px;
 }
 
 .country-nav-item {

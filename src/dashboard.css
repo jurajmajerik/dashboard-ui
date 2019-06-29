@@ -20,10 +20,21 @@ body {
   background-color: #2E3142;
 }
 
+.filter-label {
+  font-size: 13px;
+  padding-top: 2px;
+  padding-left: 7px;
+}
+
+.select-wrapper {
+  background-color: #272938;
+}
+
 .logo {
   font-family: 'PT Sans';
   color: rgb(101, 108, 131);
-  font-size: 13px;
+  font-size: 15px;
+  margin-top: 7px;
 }
 
 .bar-live {
@@ -40,11 +51,15 @@ body {
   border: none;
 }
 
-.bar-chart {
+.bar-chart-wrapper {
   background-color: #2E3142;
   border: none;
 }
 
+.bar-chart {
+  background-color: #2E3142;
+  border: none;
+}
 
 .article-item {
   background-color: #2E3142;
@@ -67,9 +82,24 @@ body {
   background-color: rgb(55, 58, 78) !important;
 }
 
-.country-title {
+.bar-chart-title {
   padding: 15px;
+  font-size: 18px;
   color: #4D8AB9;
+}
+
+.filter-select {
+  font-family: 'Lato';
+  font-weight: 700;
+  border: solid 1px #4D8AB9;
+  background-color: #4D8AB9;
+  color: rgb(56, 59, 78);
+  font-size: 13px;
+  margin-bottom: 1px;
+}
+
+select:focus{
+  outline: none;
 }
 
 .text-darker {
