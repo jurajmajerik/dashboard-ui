@@ -1,6 +1,6 @@
 body {
   background-color: #272938;
-  color: #F5F9FF;
+  color: rgb(228, 234, 245);
 }
 
 .App {
@@ -18,6 +18,12 @@ body {
 .nav-top {
   border: none;
   background-color: #2E3142;
+}
+
+.logo {
+  font-family: 'PT Sans';
+  color: rgb(101, 108, 131);
+  font-size: 13px;
 }
 
 .bar-live {
@@ -78,4 +84,26 @@ body {
 ::-webkit-scrollbar-corner { background-color: rgb(60, 65, 88);}
 ::-webkit-resizer { background-color: rgb(60, 65, 88);}
 
+.axis line,
+.axis path {
+  display: none;
+}
 
+.axis text {
+  fill: rgb(102, 108, 131);
+}
+
+.line {
+  fill: none;
+  stroke: #4D8AB9;
+  stroke-width: 1.5px;
+}
+
+.area {
+  fill: url(#temperature-gradient);
+  stroke-width: 05px;
+}
+  
+.grid {
+  opacity: 0.15
+}

@@ -16,7 +16,10 @@ export default function ViewCountry(props) {
   ));
   return (
     <div>
-      <BarChart country={match.params.country} />
+      <BarChart data={
+        [1, 2, 3, 4, 8, 4, 5, 10, 12, 13, 7, 9, 4, 12, 16, 9, 2, 3, 4, 8, 4, 5, 9, 4, 12, 16, 9, 2]
+      }
+      />
       <div
         className="article-wrapper box"
         style={{
