@@ -33,8 +33,15 @@ body {
   border-radius: 3px;
   padding: 5px;
   display: grid;
-  grid-template-columns: 80px auto;
+  grid-template-columns: 180px auto;
   font-size: 14px;
+}
+
+.live-text {
+  padding-top: 6px;
+  padding-bottom: 5px;
+  display: grid;
+  grid-template-columns: 37px 80px auto;
 }
 
 .outer-wrapper {

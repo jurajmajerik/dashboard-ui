@@ -50,9 +50,6 @@ export default class CountryNavItem extends React.Component {
     };
     const { country, rank } = this.props;
     const { show, trend } = this.state;
-    if (country === 'United Kingdom') {
-      console.log(show);
-    }
     return (
       <Fade in={show} timeout={500}>
         <NavLink

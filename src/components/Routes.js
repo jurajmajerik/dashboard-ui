@@ -11,9 +11,9 @@ export default function Routes(props) {
       <Route
         exact
         path="/all"
+        // eslint-disable-next-line no-shadow
         render={props => (
           <DataView
-            countryView="false"
             dataset={dataset}
             filter={filter}
             title="All Countries"
@@ -26,7 +26,6 @@ export default function Routes(props) {
         // eslint-disable-next-line no-shadow
         render={props => (
           <DataView
-            countryView="true"
             dataset={dataset}
             filter={filter}
             title={props.match.params.country}

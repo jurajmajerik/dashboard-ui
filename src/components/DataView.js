@@ -7,10 +7,19 @@ import ArticleList from './ArticleList';
 import BarChart from './BarChart';
 
 export default function DataView(props) {
-  const { dataset, match, countryView, title, filter } = props;
-  const articles = countryView === true
-    ? dataset[match.params.country]
-    : sortArticles(getAllArticles(dataset, filter));
+  const { dataset, match, filter } = props;
+
+  let articles;
+  let title;
+
+  if (match.params.hasOwnProperty('country')) {
+    articles = dataset[match.params.country];
+    title = match.params.country;
+  } else {
+    articles = sortArticles(getAllArticles(dataset, filter));
+    title = 'All Countries';
+  }
+
   return (
     <div>
       <BarChart title={title} />

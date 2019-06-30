@@ -23,7 +23,7 @@ export default class BarChart extends React.Component {
     const data = getHistoricalData();
 
     const margin = { top: 20, right: 20, bottom: 30, left: 50 };
-    const width = 960 - margin.left - margin.right;
+    const width = window.innerWidth - 360 - margin.left - margin.right;
     const height = 150 - margin.top - margin.bottom;
 
     const parseDate = d3.timeParse('%Y%m%d');

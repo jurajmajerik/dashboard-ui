@@ -40,6 +40,7 @@ body {
 .bar-live {
   border: none;
   background-color: #2E3142;
+  font-size: 12px;
 }
 
 .outer-wrapper {
@@ -136,4 +137,19 @@ select:focus{
   
 .grid {
   opacity: 0.15
+}
+
+.MuiSwitch-colorPrimary.Mui-checked {
+  color: rgb(68, 119, 158) !important;
+}
+
+.MuiSwitch-track {
+  background-color: rgb(33, 35, 48) !important;
+}
+
+.led {
+  color: rgb(199, 54, 54);
+  font-size: 4px;
+  padding-top: 4px;
+  padding-left: 11px;
 }
