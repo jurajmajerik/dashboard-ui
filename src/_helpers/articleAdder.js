@@ -13,7 +13,7 @@ export default function articleAdder(i) {
     articleToAdd.date = moment().add(1 * i, 'minutes');
     newDataset[country].unshift(articleToAdd);
 
-    this.setState({ dataset: newDataset, newArticle: articleToAdd });
+    this.setState({ dataset: newDataset, newArticle: articleToAdd, latestArticleCountry: country });
 
     index += 1;
     if (i < articlesToAdd.length - 1) {

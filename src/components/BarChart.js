@@ -6,21 +6,56 @@ import 'd3-selection-multi';
 import getHistoricalData from '../_helpers/getHistoricalData';
 
 export default class BarChart extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: getHistoricalData(),
+      todaysValue: 60,
+    };
+  }
+  
   componentDidMount() {
     this.drawChart();
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (this.props.title !== prevProps.title) this.redrawChart();
+    // Filter is 'all'
+    if (this.props.title === 'All Countries'
+        && this.state.todaysValue === prevState.todaysValue) {
+      this.updateLatest();
+      return
+    }
+    // New Country received
+    if (this.props.title !== prevProps.title) {
+      this.drawNewChart();
+    // New article received
+    } else if (
+        this.props.title === this.props.latestArticleCountry
+        && this.state.todaysValue === prevState.todaysValue
+        ) {
+      this.updateLatest();
+    }
   }
 
-  redrawChart() {
-    d3.select('.bar-chart').selectAll('*').remove();
-    this.drawChart();
+  drawNewChart() {
+    this.setState({ data: getHistoricalData() }, () => {
+      d3.select('.bar-chart').selectAll('*').remove();
+      this.drawChart();
+    });
+  }
+
+  updateLatest() {
+    this.setState(prevState => (
+      { todaysValue: prevState.todaysValue + 2 }
+    ),() => {
+      d3.select('.bar-chart').selectAll('*').remove();
+      this.drawChart();
+    });
   }
 
   drawChart() {
-    const data = getHistoricalData();
+    const { data, todaysValue } = this.state;
+    data[data.length - 1].count = todaysValue;
 
     const margin = { top: 20, right: 20, bottom: 30, left: 50 };
     const width = window.innerWidth - 360 - margin.left - margin.right;
@@ -42,10 +77,9 @@ export default class BarChart extends React.Component {
       .append('g')
       .attr('transform', `translate(${margin.left},${margin.top})`);
 
-    data.forEach((d) => {
-      d.date = parseDate(d.date);
-      d.count = +d.count;
-    });
+    // data.forEach((d) => {
+    //   d.date = parseDate(d.date);
+    // });
 
     x.domain([data[0].date, data[data.length - 1].date]);
     y.domain(d3.extent(data, d => d.count));
@@ -96,6 +130,25 @@ export default class BarChart extends React.Component {
       .data([data])
       .attr('class', 'line')
       .attr('d', valueline);
+    
+      const newCount = data[data.length - 1].count;
+      svg.append("circle")
+      .style("stroke", "white")
+      .style("fill", "#2E3142")
+      .attr("r", 3)
+      .attr("cx", 1010)
+      .attr("cy", (21 - newCount + 80) * 1.9);
+
+      svg.append('line')
+      .style("stroke", "#848BA7")
+      .style("fill", "#white")
+      .attr('x1', 0)
+      .attr('y1', (21 - newCount + 80) * 1.9)
+      .attr('x2', window.innerWidth - 360 - margin.left - margin.right)
+      .attr('y2', (21 - newCount + 80) * 1.9)
+      .attr('stroke-width', 1 )
+      .attr('stroke-dasharray', '1.5, 1.5' );
+
   }
 
   render() {

@@ -21,6 +21,7 @@ class App extends React.Component {
       dataset: fetchArticles(),
       newArticle: fetchNewArticle(),
       filter: 'all',
+      latestArticleCountry: 'United Kingdom',
     };
     this.handleFilterChange = this.handleFilterChange.bind(this);
   }
@@ -36,7 +37,7 @@ class App extends React.Component {
   }
 
   render() {
-    const { dataset, newArticle, filter } = this.state;
+    const { dataset, newArticle, filter, latestArticleCountry } = this.state;
     return (
       <div className="App">
         <NavTop filter={filter} onFilterChange={this.handleFilterChange} />
@@ -44,7 +45,7 @@ class App extends React.Component {
         <Router history={history}>
           <DataWrapper>
             <SideBar dataset={dataset} />
-            <Routes dataset={dataset} filter={filter} />
+            <Routes dataset={dataset} filter={filter} latestArticleCountry={latestArticleCountry} />
           </DataWrapper>
         </Router>
       </div>
