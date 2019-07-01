@@ -46,7 +46,7 @@ export default class BarChart extends React.Component {
 
   updateLatest() {
     this.setState(prevState => (
-      { todaysValue: prevState.todaysValue + 2 }
+      { todaysValue: prevState.todaysValue + 1 }
     ),() => {
       d3.select('.bar-chart').selectAll('*').remove();
       this.drawChart();
@@ -61,9 +61,7 @@ export default class BarChart extends React.Component {
     const width = window.innerWidth - 360 - margin.left - margin.right;
     const height = 150 - margin.top - margin.bottom;
 
-    const parseDate = d3.timeParse('%Y%m%d');
-
-    const x = d3.scaleTime().range([0, width]);
+    const x = d3.scaleLinear().range([0, width]);
     const y = d3.scaleLinear().range([height, 0]);
 
     const area = d3.area()
@@ -76,10 +74,6 @@ export default class BarChart extends React.Component {
       .attr('height', height + margin.top + margin.bottom)
       .append('g')
       .attr('transform', `translate(${margin.left},${margin.top})`);
-
-    // data.forEach((d) => {
-    //   d.date = parseDate(d.date);
-    // });
 
     x.domain([data[0].date, data[data.length - 1].date]);
     y.domain(d3.extent(data, d => d.count));
@@ -105,14 +99,14 @@ export default class BarChart extends React.Component {
     svg.append('g')
       .attr('class', 'x axis')
       .attr('transform', `translate(0,${height})`)
-      .call(d3.axisBottom(x));
+      .call(d3.axisBottom(x).tickFormat(d => `wk${d}`));
 
     svg.append('g')
       .attr('class', 'y axis')
       .call(d3.axisLeft(y))
       .append('text')
       .attr('transform', 'rotate(-90)')
-      .attr('y', 6)
+      .attr('y', 1)
       .attr('dy', '.71em')
       .style('text-anchor', 'end');
 
@@ -140,7 +134,7 @@ export default class BarChart extends React.Component {
       .attr("cy", (21 - newCount + 80) * 1.9);
 
       svg.append('line')
-      .style("stroke", "#848BA7")
+      .style("stroke", "#6d738a")
       .style("fill", "#white")
       .attr('x1', 0)
       .attr('y1', (21 - newCount + 80) * 1.9)

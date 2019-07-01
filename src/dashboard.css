@@ -153,3 +153,25 @@ select:focus{
   padding-top: 4px;
   padding-left: 11px;
 }
+
+.line {
+  fill: none;
+  stroke: #4D8AB9;
+  stroke-width: 1;
+}
+
+.overlay {
+fill: none;
+pointer-events: all;
+}
+
+/* Style the dots by assigning a fill and stroke */
+.dot {
+  fill: #4D8AB9;
+  stroke: #fff;
+}
+
+.focus circle {
+fill: none;
+stroke: steelblue;
+}

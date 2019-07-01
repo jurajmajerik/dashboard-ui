@@ -42,12 +42,6 @@ const AntSwitch = withStyles(theme => ({
 
 export default function BarLive(props) {
   const { article } = props;
-  const styles = {
-    root: {
-      height: 250,
-      width: 100,
-    },
-  };
   return (
     <div className="bar-live box">
       <div className="live-text">

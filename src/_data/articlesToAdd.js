@@ -8,7 +8,6 @@ export const articlesToAdd = [
   { title: 'New 7', country: 'France', topics: [1, 5, 2] },
   { title: 'New 8', country: 'Germany', topics: [3] },
   { title: 'New 9', country: 'United States', topics: [1, 4, 3] },
-  { title: 'New 10', country: 'United States', topics: [1, 5, 3] },
   { title: 'New 11', country: 'Netherlands', topics: [1, 4, 3] },
   { title: 'New 12', country: 'Germany', topics: [2, 5, 3] },
   { title: 'New 13', country: 'United States', topics: [1, 3] },
