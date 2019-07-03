@@ -21,7 +21,7 @@ export default function ArticleList(props) {
       }}
     >
       <div className="article-list-header">
-        <div>Date</div>
+        <div className="first-col-text">Date</div>
         <div>Title</div>
         <div>Topics</div>
         <div>Source</div>

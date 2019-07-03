@@ -41,7 +41,7 @@ body {
   padding-top: 6px;
   padding-bottom: 5px;
   display: grid;
-  grid-template-columns: 37px 80px auto;
+  grid-template-columns: 37px 80px 400px;
 }
 
 .outer-wrapper {
@@ -75,9 +75,9 @@ body {
 .article-list-header {
   display: grid;
   grid-template-columns: 10% 50% 20% 20%;
-  padding-top: 5px;
-  padding-left: 8px;
-  padding-bottom: 7px;
+  padding-top: 8px;
+  padding-left: 10px;
+  padding-bottom: 8px;
   margin-bottom: 5px;
   font-size: 14px;
   background-color: #393E51;
@@ -91,11 +91,12 @@ body {
   grid-template-columns: 10% 50% 20% 20%;
   padding: 5px;
   font-size: 12px;
+  padding: 5px 0px 5px 10px;
 }
 
 .topics-wrapper {
   display: grid;
-  grid-template-columns: 33% 33% 33%;
+  grid-template-columns: 60px 60px 60px;
 }
 
 .topic-badge {
@@ -118,4 +119,11 @@ body {
   height: 25px;
   padding-top: 8px;
   padding-left: 10px;
+}
+
+.trend-arrow {
+  margin-left: 3px;
+}
+
+.first-col-text:first-child {
 }

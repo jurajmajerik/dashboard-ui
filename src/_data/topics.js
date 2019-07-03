@@ -4,4 +4,6 @@ export const topicsConfig = {
   3: 'Business',
   4: 'Security',
   5: 'Culture',
+  6: 'Sport',
+  7: 'Crime',
 };

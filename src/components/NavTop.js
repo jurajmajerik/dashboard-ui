@@ -4,7 +4,7 @@ export default function NavTop(props) {
   const { filter, onFilterChange } = props;
   return (
     <div className="nav-top box">
-      <div className="logo">DASHBOARD <span style={{ color: 'rgb(61, 106, 141)' }}>-UI</span></div>
+      <div className="logo">DASHBOARD <span style={{ color: 'rgb(61, 106, 141)' }}>UI</span></div>
       <div className="select-wrapper">
         <div className="filter-label">
           Filter&nbsp;&nbsp;
@@ -18,6 +18,8 @@ export default function NavTop(props) {
             <option value="3">Business</option>
             <option value="4">Security</option>
             <option value="5">Culture</option>
+            <option value="6">Sport</option>
+            <option value="7">Crime</option>
           </select>
         </div>
       </div>

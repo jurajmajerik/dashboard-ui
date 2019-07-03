@@ -10,7 +10,7 @@ export default class BarChart extends React.Component {
     super(props);
     this.state = {
       data: getHistoricalData(),
-      todaysValue: 60,
+      todaysValue: 50,
     };
   }
   
@@ -65,6 +65,7 @@ export default class BarChart extends React.Component {
     const y = d3.scaleLinear().range([height, 0]);
 
     const area = d3.area()
+      .curve(d3.curveMonotoneX)
       .x(d => x(d.date))
       .y0(height)
       .y1(d => y(d.count));
@@ -117,7 +118,8 @@ export default class BarChart extends React.Component {
 
     const valueline = d3.line()
       .x(d => x(d.date))
-      .y(d => y(d.count));
+      .y(d => y(d.count))
+      .curve(d3.curveMonotoneX);
 
     // Add the valueline path.
     svg.append('path')
@@ -130,7 +132,7 @@ export default class BarChart extends React.Component {
       .style("stroke", "white")
       .style("fill", "#2E3142")
       .attr("r", 3)
-      .attr("cx", 1010)
+      .attr("cx", window.innerWidth - 431)
       .attr("cy", (21 - newCount + 80) * 1.9);
 
       svg.append('line')

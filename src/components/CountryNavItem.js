@@ -58,7 +58,7 @@ export default class CountryNavItem extends React.Component {
           to={`/${country}`}
           activeClassName="sidebar-active"
         >
-          <div>{trendIcons[trend]}</div>
+          <div className="trend-arrow">{trendIcons[trend]}</div>
           <div>
             &nbsp;&nbsp;&nbsp;&nbsp;
             {rank}

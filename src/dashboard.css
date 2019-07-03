@@ -150,8 +150,8 @@ select:focus{
 .led {
   color: rgb(199, 54, 54);
   font-size: 4px;
-  padding-top: 4px;
-  padding-left: 11px;
+  padding-top: 5px;
+  padding-left: 13px;
 }
 
 .line {
@@ -174,4 +174,12 @@ pointer-events: all;
 .focus circle {
 fill: none;
 stroke: steelblue;
+}
+
+select{
+  -moz-appearance: none; 
+	-webkit-appearance: none; 
+	appearance: none;
+  padding-right: 6px;
+  padding-left: 6px;
 }
