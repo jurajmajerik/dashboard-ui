@@ -7,6 +7,7 @@ import './dashboard.css';
 import history from './_helpers/history';
 import { fetchArticles, fetchNewArticle } from './_helpers/fetchData';
 import articleAdder from './_helpers/articleAdder';
+import { datasetInit } from './_data/datasetInit';
 
 import NavTop from './components/NavTop';
 import BarLive from './components/BarLive';
@@ -27,9 +28,25 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    const i = 0;
-    const cycle = articleAdder.bind(this);
-    cycle(i);
+    fetch('/api/articles')
+      .then(response => response.json())
+      .then((articles) => {
+        const dataset = datasetInit;
+        articles.forEach((article) => {
+          dataset[article.country].push(article);
+        });
+        this.setState({ dataset });
+      });
+
+    const socket = io();
+    socket.on('new_article', (data) => {
+      if (data.type === 'add') {
+        const articleNew = data.new_val;
+        const newDataset = Object.assign({}, this.state.dataset);
+        newDataset[articleNew.country].push(articleNew);
+        this.setState({ dataset: newDataset });
+      }
+    });
   }
 
   handleFilterChange(event) {
