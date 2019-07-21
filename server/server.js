@@ -45,7 +45,7 @@ r.connect({
 
   const port = process.env.PORT || 4000;
   const io = socket.listen(app.listen(port));
-  console.log('App listening on 4000 ');
+  console.log('App listening on 4000');
 
   resetDB(r, connection, io);
   subscribeClient(r, connection, io);
