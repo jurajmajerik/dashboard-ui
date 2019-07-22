@@ -4,7 +4,6 @@ import ArticleRow from './ArticleRow';
 
 export default function ArticleList(props) {
   const { articles } = props;
-  console.log(articles);
   const articleRows = articles.map(article => (
     <ArticleRow
       key={article.id}

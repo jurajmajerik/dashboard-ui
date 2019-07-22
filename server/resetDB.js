@@ -17,7 +17,7 @@ export default function resetDB(r, connection, io) {
               { title: 'New article 1', topics: [], date: new Date(), country: 'United States' },
             ]).run(connection, (err, result) => {
               if (err) throw err;
-              console.log(result);
+              io.emit('new_article', { id: '123hhjs', title: 'New article 1', topics: [], date: new Date(), country: 'United States' });
             });
         }, 1000);
       });

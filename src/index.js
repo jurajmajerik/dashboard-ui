@@ -40,12 +40,11 @@ class App extends React.Component {
 
     const socket = io();
     socket.on('new_article', (data) => {
-      if (data.type === 'add') {
-        const articleNew = data.new_val;
-        const newDataset = Object.assign({}, this.state.dataset);
-        newDataset[articleNew.country].push(articleNew);
-        this.setState({ dataset: newDataset });
-      }
+
+      const articleNew = data.new_val;
+      const newDataset = Object.assign({}, this.state.dataset);
+      newDataset[articleNew.country].push(articleNew);
+      this.setState({ dataset: newDataset });
     });
   }
 
