@@ -4,9 +4,10 @@ import ArticleRow from './ArticleRow';
 
 export default function ArticleList(props) {
   const { articles } = props;
+  console.log(articles);
   const articleRows = articles.map(article => (
     <ArticleRow
-      key={article.title}
+      key={article.id}
       title={article.title}
       date={article.date}
       topics={article.topics}
