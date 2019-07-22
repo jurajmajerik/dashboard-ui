@@ -6,7 +6,7 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
 
 import socket from 'socket.io';
-import r from 'rethinkdb';
+import r from './rethinkdb/rethinkdb';
 import subscribeClient from './subscribeClient';
 import resetDB from './resetDB';
 
