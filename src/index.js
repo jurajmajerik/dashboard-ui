@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router } from 'react-router-dom';
+import cloneDeep from 'clone-deep';
 import './styles.css';
 import './dashboard.css';
 
 import history from './_helpers/history';
 import { fetchArticles, fetchNewArticle } from './_helpers/fetchData';
-import articleAdder from './_helpers/articleAdder';
 import { datasetInit } from './_data/datasetInit';
 
 import NavTop from './components/NavTop';
@@ -19,19 +19,20 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      dataset: fetchArticles(),
+      dataset: datasetInit,
       newArticle: fetchNewArticle(),
       filter: 'all',
       latestArticleCountry: 'United Kingdom',
     };
     this.handleFilterChange = this.handleFilterChange.bind(this);
+    this.handleResetDB = this.handleResetDB.bind(this);
   }
 
   componentDidMount() {
     fetch('/api/articles')
       .then(response => response.json())
       .then((articles) => {
-        const dataset = datasetInit;
+        const dataset = cloneDeep(datasetInit);
         articles.forEach((article) => {
           dataset[article.country].push(article);
         });
@@ -40,12 +41,29 @@ class App extends React.Component {
 
     const socket = io();
     socket.on('new_article', (data) => {
-
-      const articleNew = data.new_val;
-      const newDataset = Object.assign({}, this.state.dataset);
-      newDataset[articleNew.country].push(articleNew);
-      this.setState({ dataset: newDataset });
+      if (data.type === 'add') {
+        const newArticle = data.new_val;
+        const newDataset = Object.assign({}, this.state.dataset);
+        newDataset[newArticle.country].unshift(newArticle);
+        this.setState({ dataset: newDataset, newArticle });
+      }
     });
+
+    socket.on('db_reset', () => {
+      this.handleResetDB();
+    });
+  }
+
+  handleResetDB() {
+    fetch('/api/articles')
+      .then(response => response.json())
+      .then((articles) => {
+        const dataset = cloneDeep(datasetInit);
+        articles.forEach((article) => {
+          dataset[article.country].push(article);
+        });
+        this.setState({ dataset });
+      });
   }
 
   handleFilterChange(event) {

@@ -1,3 +1,6 @@
+import moment from 'moment';
+
 export default function sortArticles(array) {
-  return array.sort((a, b) => b.date - a.date);
+  console.log(array);
+  return array.sort((a, b) => moment(b.date) - moment(a.date));
 }

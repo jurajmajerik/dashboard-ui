@@ -1,5 +1,4 @@
 /* eslint-disable */
-
 export const articlesToAdd = [
   { title: "University finance: 'Urgent review required' over bad news", country: "United Kingdom", topics: [1] },
   { title: "North Yorkshire chippy to open restaurant in China", country: "China", topics: [2] },

@@ -36,6 +36,7 @@
     "body-parser": "^1.18.3",
     "bootstrap": "^3.4.1",
     "clean-webpack-plugin": "^1.0.0",
+    "clone-deep": "^4.0.1",
     "core-js": "^2.6.5",
     "cors": "^2.8.4",
     "d3": "^4.13.0",
