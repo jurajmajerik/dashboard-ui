@@ -23,9 +23,7 @@ app.get('/api/articles', (req, res) => {
       const dataWithDates = setInitialDates(data);
       res.json(dataWithDates);
     })
-    .error((err) => {
-      console.log(err);
-    });
+    .error((err) => { console.log(err); });
 });
 
 // Fallback route

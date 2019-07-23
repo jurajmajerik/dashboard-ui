@@ -33,7 +33,7 @@ function articleAdder(r, i, socket) {
     } else {
       dbDelete(r);
       socket.emit('db_reset');
-      articleAdder(r, 0, socket);
+      // articleAdder(r, 0, socket);
     }
   }, 2000);
 }

@@ -6,7 +6,7 @@ import './styles.css';
 import './dashboard.css';
 
 import history from './_helpers/history';
-import { fetchArticles, fetchNewArticle } from './_helpers/fetchData';
+import { fetchNewArticle } from './_helpers/fetchData';
 import { datasetInit } from './_data/datasetInit';
 
 import NavTop from './components/NavTop';
@@ -25,19 +25,11 @@ class App extends React.Component {
       latestArticleCountry: 'United Kingdom',
     };
     this.handleFilterChange = this.handleFilterChange.bind(this);
-    this.handleResetDB = this.handleResetDB.bind(this);
+    this.loadData = this.loadData.bind(this);
   }
 
   componentDidMount() {
-    fetch('/api/articles')
-      .then(response => response.json())
-      .then((articles) => {
-        const dataset = cloneDeep(datasetInit);
-        articles.forEach((article) => {
-          dataset[article.country].push(article);
-        });
-        this.setState({ dataset });
-      });
+    this.loadData();
 
     const socket = io();
     socket.on('new_article', (data) => {
@@ -50,11 +42,11 @@ class App extends React.Component {
     });
 
     socket.on('db_reset', () => {
-      this.handleResetDB();
+      this.loadData();
     });
   }
 
-  handleResetDB() {
+  loadData() {
     fetch('/api/articles')
       .then(response => response.json())
       .then((articles) => {
