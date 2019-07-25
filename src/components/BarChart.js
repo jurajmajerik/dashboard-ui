@@ -4,13 +4,15 @@ import * as d3 from 'd3';
 import 'd3-selection-multi';
 
 import getHistoricalData from '../_helpers/getHistoricalData';
+import getCounts from '../_helpers/getCounts';
 
 export default class BarChart extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: getHistoricalData(),
-      todaysValue: 50,
+      dataHistorical: getHistoricalData(this.props.title),
+      todaysCount: 50,
+      // todaysCount: 50,
     };
   }
   
@@ -20,10 +22,11 @@ export default class BarChart extends React.Component {
 
   componentDidUpdate(prevProps, prevState) {
     // Filter is 'all'
-    if (this.props.title === 'All Countries'
-        && this.state.todaysValue === prevState.todaysValue) {
+    if (
+        // this.props.title === 'All Countries' &&
+        this.state.todaysCount === prevState.todaysCount) {
       this.updateLatest();
-      return
+      // return
     }
     // New Country received
     if (this.props.title !== prevProps.title) {
@@ -31,31 +34,28 @@ export default class BarChart extends React.Component {
     // New article received
     } else if (
         this.props.title === this.props.latestArticleCountry
-        && this.state.todaysValue === prevState.todaysValue
+        && this.state.todaysCount === prevState.todaysCount
         ) {
       this.updateLatest();
     }
   }
 
   drawNewChart() {
-    this.setState({ data: getHistoricalData() }, () => {
+    this.setState({ dataHistorical: getHistoricalData(this.props.title) }, () => {
       d3.select('.bar-chart').selectAll('*').remove();
       this.drawChart();
     });
   }
 
   updateLatest() {
-    this.setState(prevState => (
-      { todaysValue: prevState.todaysValue + 1 }
-    ),() => {
-      d3.select('.bar-chart').selectAll('*').remove();
-      this.drawChart();
-    });
+    d3.select('.bar-chart').selectAll('*').remove();
+    this.drawChart();
   }
 
   drawChart() {
-    const { data, todaysValue } = this.state;
-    data[data.length - 1].count = todaysValue;
+    const { dataHistorical } = this.state;
+    const { todaysCount } = this.props;
+    dataHistorical[dataHistorical.length - 1].count = todaysCount;
 
     const margin = { top: 20, right: 20, bottom: 30, left: 50 };
     const width = window.innerWidth - 360 - margin.left - margin.right;
@@ -76,20 +76,19 @@ export default class BarChart extends React.Component {
       .append('g')
       .attr('transform', `translate(${margin.left},${margin.top})`);
 
-    x.domain([data[0].date, data[data.length - 1].date]);
-    y.domain(d3.extent(data, d => d.count));
+    x.domain([dataHistorical[0].date, dataHistorical[dataHistorical.length - 1].date]);
+    y.domain(d3.extent(dataHistorical, d => d.count));
 
     svg.append('linearGradient')
       .attr('id', 'temperature-gradient')
       .attr('gradientUnits', 'userSpaceOnUse')
       .attr('x1', 0)
-      .attr('y1', y(50))
+      .attr('y1', y(Math.min(...getCounts(dataHistorical))))
       .attr('x2', 0)
-      .attr('y2', y(100))
+      .attr('y2', y(Math.max(...getCounts(dataHistorical))))
       .selectAll('stop')
       .data([
         { offset: '0%', color: 'rgb(46, 49, 66, 0.4)' },
-        // { offset: '20%', color: 'rgb(128, 128, 128, 0.3)' },
         { offset: '100%', color: 'rgb(77, 138, 185, 0.4)' },
       ])
       .enter()
@@ -112,7 +111,7 @@ export default class BarChart extends React.Component {
       .style('text-anchor', 'end');
 
     svg.append('path')
-      .datum(data)
+      .datum(dataHistorical)
       .attr('class', 'area')
       .attr('d', area);
 
@@ -123,28 +122,27 @@ export default class BarChart extends React.Component {
 
     // Add the valueline path.
     svg.append('path')
-      .data([data])
+      .data([dataHistorical])
       .attr('class', 'line')
       .attr('d', valueline);
     
-      const newCount = data[data.length - 1].count;
+      const newCount = dataHistorical[dataHistorical.length - 1].count;
       svg.append("circle")
       .style("stroke", "white")
       .style("fill", "#2E3142")
       .attr("r", 3)
       .attr("cx", window.innerWidth - 431)
-      .attr("cy", (21 - newCount + 80) * 1.9);
+      .attr("cy", y(newCount));
 
       svg.append('line')
       .style("stroke", "#6d738a")
       .style("fill", "#white")
       .attr('x1', 0)
-      .attr('y1', (21 - newCount + 80) * 1.9)
+      .attr('y1', y(newCount))
       .attr('x2', window.innerWidth - 360 - margin.left - margin.right)
-      .attr('y2', (21 - newCount + 80) * 1.9)
+      .attr('y2', y(newCount))
       .attr('stroke-width', 1 )
       .attr('stroke-dasharray', '1.5, 1.5' );
-
   }
 
   render() {

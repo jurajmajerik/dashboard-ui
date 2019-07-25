@@ -10,6 +10,9 @@ import setInitialDates from './setInitialDates';
 
 const r = require('rethinkdbdash')(dbConfig);
 
+// import populateDB from './_data/populateDB';
+// populateDB(r);
+
 const app = express();
 const http = require('http').createServer(app);
 

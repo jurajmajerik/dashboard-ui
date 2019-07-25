@@ -12,6 +12,7 @@ export default function DataView(props) {
 
   let articles;
   let title;
+  let count;
 
   if (match.params.hasOwnProperty('country')) {
     const { country } = match.params;
@@ -24,7 +25,11 @@ export default function DataView(props) {
 
   return (
     <div>
-      <BarChart title={title} latestArticleCountry={latestArticleCountry} />
+      <BarChart
+        title={title}
+        todaysCount={articles.length}
+        latestArticleCountry={latestArticleCountry}
+      />
       <ArticleList articles={articles} />
     </div>
   );

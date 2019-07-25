@@ -23,6 +23,7 @@ export default function Routes(props) {
         )}
       />
       <Route
+        exact
         path="/:country"
         // eslint-disable-next-line no-shadow
         render={props => (

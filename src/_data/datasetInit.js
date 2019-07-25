@@ -10,5 +10,4 @@ export const datasetInit = {
   'India': [],
   'Mexico': [],
   'Brazil': [],
-  'Pakistan': [],
 };
