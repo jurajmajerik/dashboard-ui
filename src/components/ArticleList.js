@@ -13,20 +13,23 @@ export default function ArticleList(props) {
     />
   ));
   return (
-    <div
-      className="article-wrapper box"
-      style={{
-        height: window.innerHeight - 355,
-        maxHeight: window.innerHeight - 355,
-      }}
-    >
+    <div className="box">
       <div className="article-list-header">
         <div className="first-col-text">Date</div>
         <div>Title</div>
         <div>Topics</div>
         <div>Source</div>
       </div>
-      {articleRows}
+
+      <div 
+        className="article-wrapper"
+        style={{
+          height: window.innerHeight - 355,
+          maxHeight: window.innerHeight - 355,
+        }}
+      >
+        {articleRows}
+      </div>
     </div>
   );
 }

@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import { Router } from 'react-router-dom';
 import cloneDeep from 'clone-deep';
 import './styles.css';
-import './dashboard.css';
 
 import history from './_helpers/history';
 import { fetchNewArticle } from './_helpers/fetchData';

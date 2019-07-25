@@ -7,11 +7,10 @@ export default function Routes(props) {
   const { dataset, filter, latestArticleCountry } = props;
   return (
     <Switch>
-      {/* <Route exact path="/" render={() => <Redirect to="/all" />} /> */}
+      <Route exact path="/" render={() => <Redirect to="/all" />} />
       <Route
         exact
-        path="/"
-        // eslint-disable-next-line no-shadow
+        path="/all"
         render={props => (
           <DataView
             dataset={dataset}
@@ -25,7 +24,6 @@ export default function Routes(props) {
       <Route
         exact
         path="/:country"
-        // eslint-disable-next-line no-shadow
         render={props => (
           <DataView
             dataset={dataset}

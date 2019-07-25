@@ -1,5 +1,7 @@
 body {
   margin: 20px;
+  background-color: #272938;
+  color: rgb(228, 234, 245);
 }
 
 .App {
@@ -8,33 +10,50 @@ body {
 }
 
 .box {
+  background-color: #2E3142;
+  border-radius: 3px !important;
+  -webkit-box-shadow: 0px 0px 5px 4px #1a1b25;
+  -moz-box-shadow: 0px 0px 5px 4px #1a1b25;
+  box-shadow: 0px 0px 2px 2px #2526338f;
 }
 
 .nav-top {
-  border: solid 1px black;
   border-radius: 3px;
   padding-top: 6px;
   padding-bottom: 6px;
-  padding-left: 9px;
+  padding-left: 17px;
   display: grid;
   grid-template-columns: 150px 150px;
   margin-bottom: 20px;
 }
 
+.filter-label {
+  font-size: 13px;
+  padding-top: 2px;
+  padding-left: 7px;
+}
+
 .select-wrapper {
+  background-color: #272938;
   padding: 5px;
   border-radius: 3px;
   display: grid;
   grid-template-columns: 60px 40px;
 }
 
+.logo {
+  font-family: 'PT Sans';
+  color: rgb(101, 108, 131);
+  font-size: 15px;
+  margin-top: 7px;
+}
+
 .bar-live {
-  border: solid 1px red;
+  font-size: 12px;
   border-radius: 3px;
   padding: 5px;
   display: grid;
   grid-template-columns: 180px auto;
-  font-size: 14px;
 }
 
 .live-text {
@@ -51,40 +70,43 @@ body {
   grid-gap: 20px;
 }
 
-.country-list {
-  border: solid 1px blue;
+.sidebar {
   border-radius: 3px;
 }
 
+.sidebar a:hover {
+  background-color: rgb(55, 58, 78);
+  -webkit-transition: color .4s ease-out;
+  transition: color .4s ease-out;
+}
+
 .bar-chart-wrapper {
-  border: solid 1px green;
   border-radius: 3px;
   height: 200px;
   margin-bottom: 20px;
 }
 
-.bar-chart {
-}
-
 .article-wrapper{
   margin: 0;
+  padding-top: 6px;
   overflow-x: hidden;
   overflow-y: scroll;
 }
 
 .article-list-header {
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
   display: grid;
   grid-template-columns: 10% 50% 20% 20%;
   padding-top: 8px;
   padding-left: 10px;
   padding-bottom: 8px;
-  margin-bottom: 5px;
+  margin-bottom: 0px;
   font-size: 14px;
   background-color: #393E51;
 }
 
-.article-item {
-  border: solid 1px orange;
+.article-row {
   border-radius: 3px;
   overflow: hidden;
   display: grid;
@@ -92,6 +114,10 @@ body {
   padding: 5px;
   font-size: 12px;
   padding: 5px 0px 5px 10px;
+}
+
+.country-nav-item {
+  text-decoration: none;
 }
 
 .topics-wrapper {
@@ -110,7 +136,6 @@ body {
 }
 
 .country-nav-item {
-  border: solid 1px grey;
   display: grid;
   grid-template-columns: 20px auto;
   text-decoration: none;
@@ -125,5 +150,113 @@ body {
   margin-left: 3px;
 }
 
-.first-col-text:first-child {
+.navlink-wrapper a {
+  color: #F5F9FF;
+  text-decoration: none;
+  width: 100%;
+  height: 100%;
+}
+
+.sidebar-active {
+  background-color: rgb(55, 58, 78) !important;
+}
+
+.bar-chart-title {
+  padding: 15px;
+  font-size: 18px;
+  color: #4D8AB9;
+}
+
+.filter-select {
+  font-family: 'Lato';
+  font-weight: 700;
+  border: solid 1px #4D8AB9;
+  background-color: #4D8AB9;
+  color: rgb(56, 59, 78);
+  font-size: 13px;
+  margin-bottom: 1px;
+}
+
+select:focus{
+  outline: none;
+}
+
+.text-darker {
+  color: #848BA7;
+}
+
+::-webkit-scrollbar { width: 4px; height: 3px;}
+::-webkit-scrollbar-button {  background-color: rgb(60, 65, 88); }
+::-webkit-scrollbar-track {  background-color: rgb(60, 65, 88);}
+::-webkit-scrollbar-track-piece { background-color: rgb(30, 32, 44);}
+::-webkit-scrollbar-thumb { height: 50px; background-color: rgb(60, 65, 88); border-radius: 3px;}
+::-webkit-scrollbar-corner { background-color: rgb(60, 65, 88);}
+::-webkit-resizer { background-color: rgb(60, 65, 88);}
+
+.axis line,
+.axis path {
+  display: none;
+}
+
+.axis text {
+  fill: rgb(102, 108, 131);
+}
+
+.line {
+  fill: none;
+  stroke: #4D8AB9;
+  stroke-width: 1.5px;
+}
+
+.area {
+  fill: url(#temperature-gradient);
+  stroke-width: 05px;
+}
+  
+.grid {
+  opacity: 0.15
+}
+
+.MuiSwitch-colorPrimary.Mui-checked {
+  color: rgb(68, 119, 158) !important;
+}
+
+.MuiSwitch-track {
+  background-color: rgb(33, 35, 48) !important;
+}
+
+.led {
+  color: rgb(199, 54, 54);
+  font-size: 4px;
+  padding-top: 5px;
+  padding-left: 13px;
+}
+
+.line {
+  fill: none;
+  stroke: #4D8AB9;
+  stroke-width: 1;
+}
+
+.overlay {
+  fill: none;
+  pointer-events: all;
+}
+
+.dot {
+  fill: #4D8AB9;
+  stroke: #fff;
+}
+
+.focus circle {
+  fill: none;
+  stroke: steelblue;
+}
+
+select{
+  -moz-appearance: none; 
+	-webkit-appearance: none; 
+	appearance: none;
+  padding-right: 6px;
+  padding-left: 6px;
 }

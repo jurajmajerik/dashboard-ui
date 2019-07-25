@@ -11,8 +11,6 @@ export default class BarChart extends React.Component {
     super(props);
     this.state = {
       dataHistorical: getHistoricalData(this.props.title),
-      todaysCount: 50,
-      // todaysCount: 50,
     };
   }
   
@@ -20,23 +18,15 @@ export default class BarChart extends React.Component {
     this.drawChart();
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    // Filter is 'all'
-    if (
-        // this.props.title === 'All Countries' &&
-        this.state.todaysCount === prevState.todaysCount) {
+  componentDidUpdate(prevProps) {
+    // Update today's article count
+    if (this.props.todaysCount !== prevProps.todaysCount) {
       this.updateLatest();
-      // return
     }
-    // New Country received
+
+    // Draw new chart on country change
     if (this.props.title !== prevProps.title) {
       this.drawNewChart();
-    // New article received
-    } else if (
-        this.props.title === this.props.latestArticleCountry
-        && this.state.todaysCount === prevState.todaysCount
-        ) {
-      this.updateLatest();
     }
   }
 

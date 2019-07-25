@@ -6,7 +6,7 @@ import AllCountriesLink from './AllCountriesLink';
 export default function SideBar(props) {
   const { dataset } = props;
   return (
-    <div className="country-list box">
+    <div className="sidebar box">
       <AllCountriesLink />
       <NavLinksCountries dataset={dataset} />
     </div>

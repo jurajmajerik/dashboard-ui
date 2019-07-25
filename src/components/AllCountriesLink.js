@@ -5,7 +5,7 @@ export default function AllCountriesLink() {
   return (
     <NavLink
       className="navlink-wrapper country-nav-item"
-      to="/"
+      to="/all"
       activeClassName="sidebar-active"
       style={{
         borderTopLeftRadius: '3px',

@@ -12,7 +12,6 @@ export default function DataView(props) {
 
   let articles;
   let title;
-  let count;
 
   if (match.params.hasOwnProperty('country')) {
     const { country } = match.params;
