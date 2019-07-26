@@ -1,5 +1,6 @@
 import React from 'react';
 import moment from 'moment';
+import PropTypes from 'prop-types';
 
 import { topicsConfig } from '../_data/topics';
 
@@ -20,3 +21,9 @@ export default function ArticleRow(props) {
     </div>
   );
 }
+
+ArticleRow.propTypes = {
+  title: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
+  topics: PropTypes.array.isRequired,
+};

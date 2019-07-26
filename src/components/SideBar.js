@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import NavLinksCountries from './NavLinksCountries';
 import AllCountriesLink from './AllCountriesLink';
@@ -12,3 +13,7 @@ export default function SideBar(props) {
     </div>
   );
 }
+
+SideBar.propTypes = {
+  dataset: PropTypes.object.isRequired,
+};

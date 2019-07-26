@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import { Route, Switch, Redirect } from 'react-router-dom';
 
 import DataView from './DataView';
@@ -37,3 +39,9 @@ export default function Routes(props) {
     </Switch>
   );
 }
+
+Routes.propTypes = {
+  dataset: PropTypes.object.isRequired,
+  filter: PropTypes.string.isRequired,
+  latestArticleCountry: PropTypes.string.isRequired,
+};

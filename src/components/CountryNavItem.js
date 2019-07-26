@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import { NavLink } from 'react-router-dom';
 import Fade from '@material-ui/core/Fade';
 
@@ -70,3 +72,8 @@ export default class CountryNavItem extends React.Component {
     );
   }
 }
+
+CountryNavItem.propTypes = {
+  country: PropTypes.string.isRequired,
+  rank: PropTypes.number.isRequired,
+};

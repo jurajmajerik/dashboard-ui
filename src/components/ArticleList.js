@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import ArticleRow from './ArticleRow';
 
@@ -33,3 +34,7 @@ export default function ArticleList(props) {
     </div>
   );
 }
+
+ArticleList.propTypes = {
+  articles: PropTypes.array.isRequired,
+};

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import getAllArticles from '../_helpers/getAllArticles';
 import sortArticles from '../_helpers/sortArticles';
@@ -8,7 +9,12 @@ import ArticleList from './ArticleList';
 import BarChart from './BarChart';
 
 export default function DataView(props) {
-  const { dataset, match, filter, latestArticleCountry } = props;
+  const {
+    dataset,
+    match,
+    filter,
+    latestArticleCountry,
+  } = props;
 
   let articles;
   let title;
@@ -33,3 +39,10 @@ export default function DataView(props) {
     </div>
   );
 }
+
+DataView.propTypes = {
+  dataset: PropTypes.object.isRequired,
+  match: PropTypes.object.isRequired,
+  filter: PropTypes.string.isRequired,
+  latestArticleCountry: PropTypes.string.isRequired,
+};

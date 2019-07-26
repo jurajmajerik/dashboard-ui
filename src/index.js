@@ -2,10 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router } from 'react-router-dom';
 import cloneDeep from 'clone-deep';
+
 import './styles.css';
 
 import history from './_helpers/history';
-import { fetchNewArticle } from './_helpers/fetchData';
 import { datasetInit } from './_data/datasetInit';
 
 import NavTop from './components/NavTop';
@@ -19,9 +19,9 @@ class App extends React.Component {
     super(props);
     this.state = {
       dataset: datasetInit,
-      newArticle: fetchNewArticle(),
+      newArticle: { title: '', date: null, topics: [] },
       filter: 'all',
-      latestArticleCountry: 'United Kingdom',
+      latestArticleCountry: '',
     };
     this.handleFilterChange = this.handleFilterChange.bind(this);
     this.loadData = this.loadData.bind(this);
@@ -62,7 +62,13 @@ class App extends React.Component {
   }
 
   render() {
-    const { dataset, newArticle, filter, latestArticleCountry } = this.state;
+    const {
+      dataset,
+      newArticle,
+      filter,
+      latestArticleCountry,
+    } = this.state;
+
     return (
       <div className="App">
         <NavTop filter={filter} onFilterChange={this.handleFilterChange} />

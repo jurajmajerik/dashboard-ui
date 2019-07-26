@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Fade from '@material-ui/core/Fade';
 
 export default class LiveText extends React.Component {
@@ -44,3 +45,7 @@ export default class LiveText extends React.Component {
     );
   }
 }
+
+LiveText.propTypes = {
+  article: PropTypes.object.isRequired,
+};

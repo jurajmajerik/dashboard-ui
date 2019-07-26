@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import getSortedCountries from '../_helpers/getSortedCountries';
 
@@ -15,3 +16,7 @@ export default function NavLinksCountries(props) {
     </React.Fragment>
   );
 }
+
+NavLinksCountries.propTypes = {
+  dataset: PropTypes.object.isRequired,
+};

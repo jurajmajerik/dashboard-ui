@@ -4,6 +4,7 @@ import path from 'path';
 import express from 'express';
 import cors from 'cors';
 import { dbConfig } from './dbConfig';
+
 import dbListenForChanges from './simulation/dbListenForChanges';
 import dbSimulateArticleStream from './simulation/dbSimulateArticleStream';
 import setInitialDates from './helpers/setInitialDates';

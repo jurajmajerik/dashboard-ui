@@ -1,10 +1,17 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default function NavTop(props) {
   const { filter, onFilterChange } = props;
   return (
     <div className="nav-top box">
-      <div className="logo">REAL-TIME <span style={{ color: 'rgb(61, 106, 141)' }}>UI</span></div>
+      <div className="logo">
+        REAL-TIME
+        &nbsp;
+        <span style={{ color: 'rgb(61, 106, 141)' }}>
+        UI
+        </span>
+      </div>
       <div className="select-wrapper">
         <div className="filter-label">
           Filter&nbsp;&nbsp;
@@ -26,3 +33,8 @@ export default function NavTop(props) {
     </div>
   );
 }
+
+NavTop.propTypes = {
+  filter: PropTypes.string.isRequired,
+  onFilterChange: PropTypes.func.isRequired,
+};

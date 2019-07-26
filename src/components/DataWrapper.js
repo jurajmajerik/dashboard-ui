@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default function DataWrapper(props) {
   const { children } = props;
@@ -8,3 +9,7 @@ export default function DataWrapper(props) {
     </div>
   );
 }
+
+DataWrapper.propTypes = {
+  children: PropTypes.array.isRequired,
+};

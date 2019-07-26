@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import LiveText from './LiveText';
 
@@ -11,8 +12,11 @@ export default function BarLive(props) {
         <div>LIVE NOW:</div>
         <LiveText article={article} />
       </div>
-      <div style={{ textAlign: 'right' }}>
-      </div>
+      <div style={{ textAlign: 'right' }} />
     </div>
   );
 }
+
+BarLive.propTypes = {
+  article: PropTypes.object.isRequired,
+};
