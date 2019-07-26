@@ -1,6 +1,6 @@
 body {
   margin: 20px;
-  background-color: #272938;
+  background-color: #272936;
   color: rgb(228, 234, 245);
 }
 
@@ -10,7 +10,7 @@ body {
 }
 
 .box {
-  background-color: #2E3142;
+  background-color: #2c2f3c;
   border-radius: 3px !important;
   -webkit-box-shadow: 0px 0px 5px 4px #1a1b25;
   -moz-box-shadow: 0px 0px 5px 4px #1a1b25;

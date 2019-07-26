@@ -1,5 +1,5 @@
 /* eslint-disable */
-export default function populateDB(r) {
+export default function dbInit(r) {
   r.table('articles')
     .delete()
     .run()

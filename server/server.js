@@ -4,14 +4,11 @@ import path from 'path';
 import express from 'express';
 import cors from 'cors';
 import { dbConfig } from './dbConfig';
-import dbListenForChanges from './dbListenForChanges';
-import dbSimulateArticleStream from './dbSimulateArticleStream';
-import setInitialDates from './setInitialDates';
+import dbListenForChanges from './simulation/dbListenForChanges';
+import dbSimulateArticleStream from './simulation/dbSimulateArticleStream';
+import setInitialDates from './helpers/setInitialDates';
 
 const r = require('rethinkdbdash')(dbConfig);
-
-// import populateDB from './_data/populateDB';
-// populateDB(r);
 
 const app = express();
 const http = require('http').createServer(app);

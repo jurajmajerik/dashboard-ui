@@ -1,12 +1,7 @@
 import dbDelete from './dbDelete';
-import { articlesToStream } from './articlesToStream';
+import { articlesToStream } from '../data/articlesToStream';
 
-export default function dbSimulateArticleStream(r, socket) {
-  dbDelete(r);
-  articleAdder(r, 0, socket);
-}
-
-function articleAdder(r, i, socket) {
+export default function articleAdder(r, i, socket) {
   let index = i;
   const articleToAdd = articlesToStream[index];
   articleToAdd.date = new Date();
