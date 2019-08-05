@@ -93,6 +93,6 @@ gulp.task('deploy',
     'gitCommit',
     'gitPushHeroku',
     'herokuRunInstance',
-    'gitPushBitBucket'
+    'gitPushRemote'
     )
   );
