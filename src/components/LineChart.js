@@ -6,7 +6,7 @@ import 'd3-selection-multi';
 import getHistoricalData from '../_helpers/getHistoricalData';
 import getCounts from '../_helpers/getCounts';
 
-export default class BarChart extends React.Component {
+export default class LineChart extends React.Component {
   constructor(props) {
     super(props);
     this.state = {

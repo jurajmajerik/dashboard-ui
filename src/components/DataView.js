@@ -6,7 +6,7 @@ import sortArticles from '../_helpers/sortArticles';
 import getArticlesForCountry from '../_helpers/getArticlesForCountry';
 
 import ArticleList from './ArticleList';
-import BarChart from './BarChart';
+import LineChart from './LineChart';
 
 export default function DataView(props) {
   const {
@@ -30,7 +30,7 @@ export default function DataView(props) {
 
   return (
     <div>
-      <BarChart
+      <LineChart
         title={title}
         todaysCount={articles.length}
         latestArticleCountry={latestArticleCountry}
