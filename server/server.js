@@ -10,7 +10,8 @@ import dbSimulateArticleStream from './simulation/dbSimulateArticleStream';
 import setInitialDates from './helpers/setInitialDates';
 
 const r = require('rethinkdbdash')(dbConfig);
-
+// import dbInit from './data/dbInit';
+// dbInit(r);
 const app = express();
 const http = require('http').createServer(app);
 

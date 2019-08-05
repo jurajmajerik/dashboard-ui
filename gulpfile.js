@@ -54,7 +54,7 @@ gulp.task('gitCommit', function (cb) {
   });
 });
 
-gulp.task('gitPushBitBucket', function (cb) {
+gulp.task('gitPushRemote', function (cb) {
   exec('git push', function (err, stdout, stderr) {
     console.log(stdout);
     console.log(stderr);

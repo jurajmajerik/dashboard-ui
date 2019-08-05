@@ -6,4 +6,5 @@ export const topicsConfig = {
   5: 'Culture',
   6: 'Sport',
   7: 'Crime',
+  8: 'Tech',
 };
