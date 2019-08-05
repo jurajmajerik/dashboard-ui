@@ -15,9 +15,6 @@ export default class CountryNavItem extends React.Component {
     this.hide = this.hide.bind(this);
   }
 
-  componentDidMount() {
-  }
-
   componentDidUpdate(prevProps) {
     const { rank } = this.props;
     if (rank !== prevProps.rank) {
