@@ -22,7 +22,7 @@ export default function ArticleList(props) {
         <div>Source</div>
       </div>
 
-      <div 
+      <div
         className="article-wrapper"
         style={{
           height: window.innerHeight - 355,

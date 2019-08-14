@@ -87,12 +87,12 @@ export default class LineChart extends React.Component {
       .attr('stop-color', d => d.color);
 
     svg.append('g')
-      .attr('class', 'x axis')
+      .attr('class', 'axis')
       .attr('transform', `translate(0,${height})`)
       .call(d3.axisBottom(x).tickFormat(d => `wk${d}`));
 
     svg.append('g')
-      .attr('class', 'y axis')
+      .attr('class', 'axis')
       .call(d3.axisLeft(y))
       .append('text')
       .attr('transform', 'rotate(-90)')

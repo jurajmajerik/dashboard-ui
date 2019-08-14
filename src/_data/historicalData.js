@@ -3,4 +3,4 @@ export const countHistoricalAll = Array.from({ length: 30 }, () => Math.floor(Ma
 
 export const countHistoricalCountry = Array.from({ length: 30 }, () => Math.floor(Math.random() * 5) + 5);
 
-export const datesHistorical = ([...Array(30).keys()].map(x => x++));
+export const datesHistorical = ([...Array(30).keys()].map(x => x + 1));

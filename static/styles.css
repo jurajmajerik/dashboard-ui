@@ -5,13 +5,6 @@
   font-style: normal;
 }
 
-/* @font-face {
-  font-family: 'Proxima Nova';
-  src: url('./fonts/ProximaNova-Regular.otf') format('opentype');
-  font-weight: 400;
-  font-style: normal;
-} */
-
 body {
   margin: 0;
   font-family: 'Salesforce Sans', 'Open Sans', sans-serif;
