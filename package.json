@@ -54,7 +54,7 @@
     "rethinkdb": "^2.3.3",
     "rethinkdbdash": "^2.3.31",
     "shuffle-array": "^1.0.1",
-    "socket.io": "^2.2.0"
+    "socket.io": "^2.5.0"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
