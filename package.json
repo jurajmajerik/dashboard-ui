@@ -50,7 +50,7 @@
     "react": "^16.8.6",
     "react-dom": "16.8.6",
     "react-router-dom": "^4.1.2",
-    "react-scripts": "3.0.1",
+    "react-scripts": "3.4.4",
     "rethinkdb": "^2.3.3",
     "rethinkdbdash": "^2.3.31",
     "shuffle-array": "^1.0.1",
